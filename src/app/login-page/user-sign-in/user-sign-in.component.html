@@ -1,0 +1,26 @@
+<form [formGroup]="loginForm" class="col-md-8 mar-top20 center-align" (ngSubmit)="onClickLoginSubmit()">
+
+  <p class="font-italic mar-top10 align-text">Login to proceed</p>
+
+  <div class="row mar-top20">
+    <input style="width: 100%" formControlName="userNameOrEmail" class="user-name" type="text" name="" id=""
+      placeholder="Username  or Email">
+    <div *ngFor="let validation of validationMessages.USER_NAME">
+      <div class="mar-top10 error_message" *ngIf="loginForm.get('userNameOrEmail').hasError(validation.type) && (loginForm.get('userNameOrEmail').invalid && loginForm.get('userNameOrEmail').touched)">{{validation.message}}</div>
+    </div>
+  </div>
+
+  <div class="row mar-top20">
+    <input style="width: 100%" formControlName="password" class="user-name" type="text" name="" id="" placeholder="Please enter password">
+    <div *ngFor="let validation of validationMessages.PASSWORD">
+      <div class="mar-top10 error_message" *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').invalid && loginForm.get('password').touched)">{{validation.message}}</div>
+    </div>
+  </div>
+
+  <div class="mar-top20">
+    <button style="width: 100%" class="btn btn-success cursor-pointer">Log In</button>
+  </div>
+
+  <p class="mar-top20 align-text reset-password">Forgot password</p>
+
+</form>

@@ -1,0 +1,77 @@
+<div class="col-md-4 signIn_container">
+
+  <div style="text-align: center;" class="mar-top10">
+    <button [ngClass]="{'btn-success': selectedForm === 'SIGN_UP'}" (click)="selectedForm = 'SIGN_UP'" class="btn">Sign
+      Up</button>
+    <button [ngClass]="{'btn-success': selectedForm === 'LOGIN'}" (click)="selectedForm = 'LOGIN'" class="btn">Login</button>
+  </div>
+
+
+  <section *ngIf="selectedForm === 'SIGN_UP'">
+    <p class="mar-top10 align-text font-italic">Sign Up for Free</p>
+
+    <form [formGroup]="signUpForm" class="mar-top20" (ngSubmit)="onClickSignUpSubmit(errorModalTemplate)">
+      <div class="row">
+        <div class="col-md-6">
+          <input style="width: 100%" type="text" class="user-name" formControlName="firstName" placeholder="First Name*">
+          <div *ngFor="let validation of validationConstraints.FIRST_NAME">
+            <div class="mar-top10 error_message" *ngIf="signUpForm.get('firstName').hasError(validation.type) && (signUpForm.get('firstName').invalid && signUpForm.get('firstName').touched)">{{validation.message}}</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <input style="width: 100%" type="text" class="user-name" formControlName="lastName" placeholder="Last Name*">
+          <div *ngFor="let validation of validationConstraints.LAST_NAME">
+            <div class="mar-top10 error_message" *ngIf="signUpForm.get('lastName').hasError(validation.type) && (signUpForm.get('lastName').invalid && signUpForm.get('lastName').touched)">{{validation.message}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mar-top20" style="padding: 0 14px;">
+        <input type="text" class="user-name" style="width: 100%" formControlName="email" placeholder="Email Address*">
+        <div *ngFor="let validation of validationConstraints.EMAIL">
+          <div class="mar-top10 error_message" *ngIf="signUpForm.get('email').hasError(validation.type) && (signUpForm.get('email').invalid && signUpForm.get('email').touched)">{{validation.message}}</div>
+        </div>
+      </div>
+
+      <div class="row mar-top20" style="padding: 0 14px;">
+        <input type="text" class="user-name" style="width: 100%" formControlName="password" placeholder="Set a new password*">
+        <div *ngFor="let validation of validationConstraints.PASSWORD">
+          <div class="mar-top10 error_message" *ngIf="signUpForm.get('password').hasError(validation.type) && (signUpForm.get('password').invalid && signUpForm.get('password').touched)">{{validation.message}}</div>
+        </div>
+      </div>
+
+      <div class="row mar-top20" style="padding: 0 14px;">
+        <input type="text" class="user-name" style="width: 100%" formControlName="confirmationPassword" placeholder="Re-Enter the password*">
+        <div *ngFor="let validation of validationConstraints.CONFIRMATION_PSWD">
+          <div class="mar-top10 error_message" *ngIf="signUpForm.get('confirmationPassword').hasError(validation.type) && (signUpForm.get('confirmationPassword').invalid && signUpForm.get('confirmationPassword').touched)">{{validation.message}}</div>
+        </div>
+      </div>
+
+      <div class="row mar-top20" style="padding: 0 14px;">
+        <button class="btn btn-success submit-btn cursor-pointer">GET STARTED</button>
+      </div>
+    </form>
+
+  </section>
+
+  <section *ngIf="selectedForm === 'LOGIN'">
+    <app-user-sign-in (openErrorModal)="openErrorModal(errorModalTemplate)"></app-user-sign-in>
+  </section>
+
+</div>
+
+
+<ng-template #errorModalTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Validation Error</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="errorModal.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Please enter all mandetory fields
+  </div>
+  <div class="modal-footer col-md-3">
+    <button class="btn submit-btn" (click)="errorModal.hide()">Ok</button>
+  </div>
+</ng-template>

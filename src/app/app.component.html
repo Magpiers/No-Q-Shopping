@@ -1,0 +1,38 @@
+<div class="container-fluid">
+
+  <!-- header section -->
+  <header class="jumbotron row">
+    <!-- Logo -->
+    <div class="col-md-5">
+      <img class="logo_image cursor-pointer" src="./../assets//images/logo.png" alt="logo">
+    </div>
+
+    <!-- title -->
+    <div class="col-md-4 mar-top10 cursor-pointer">
+      <h3>No-Q-Shopping</h3>
+    </div>
+
+    <!-- User Name -->
+    <p class="col-md-1 mar-top20">User Name</p>
+
+    <!-- Notification & cart image -->
+    <div class="col-md-2" style="margin-top: 14px;">
+      <img class="cart_image cursor-pointer" style="max-height: 60px;" src="./../assets/images/notification_icon.png"
+        alt="">
+      <img class="cart_image cursor-pointer" style="max-height: 60px;" src="./../assets/images/cart_icon.png" alt="">
+    </div>
+  </header>
+
+  <section class="jumbotron body_container">
+    <router-outlet></router-outlet>
+  </section>
+
+
+
+
+
+  <footer class="jumbotron row">
+    <p style="color: black;" class="center-align">@Copyrights reserved</p>
+  </footer>
+
+</div>

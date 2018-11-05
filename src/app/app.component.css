@@ -1,0 +1,22 @@
+.jumbotron {
+    padding: 10px !important;
+    margin-bottom: 0 !important;
+    background-color: #878a89;
+    border-radius: 0 !important;
+}
+
+.logo_image {
+    width: 100px;
+    height: 62px;
+}
+
+.cart_image {
+    width: 50px;
+    height: 35px;
+}
+
+.body_container {
+    min-height: 200px;
+    background: #17b187;
+    ;
+}

@@ -1,0 +1,22 @@
+.user-name {
+    background-color: transparent;
+    outline: none;
+    border: 0.1px solid #fff;
+    width: 44%;
+    color: #fff;
+    padding: 5px;
+}
+
+.reset-password:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}
+
+.btn-success {
+    background-color: #17b187;
+}
+
+.error_message {
+    color: red;
+}
